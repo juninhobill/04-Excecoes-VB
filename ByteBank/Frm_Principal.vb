@@ -10,6 +10,9 @@ Public Class Frm_Principal
 
         Me.Text = "Projeto ByteBank"
         Lbl_Principal.Text = "Projeto ByteBank"
+        Lbl_Denominador.Text = "Digite o Denominador"
+        Lbl_Agencia.Text = "Agencia"
+        Lbl_Conta.Text = "Conta"
 
     End Sub
 
@@ -118,4 +121,30 @@ Public Class Frm_Principal
 
     End Function
 
+    Private Sub Video04ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Video04ToolStripMenuItem.Click
+
+        Try
+
+            Dim vAgencia As Integer = Val(Txt_Agencia.Text)
+            Dim vConta As Integer = Val(Txt_Conta.Text)
+
+            Dim conta As New ContaCorrente(vAgencia, vConta)
+
+            MsgBox("O código da agência e conta são: " + conta.agencia.ToString + " - " + conta.numero.ToString)
+
+        Catch ex As ArgumentException
+
+            MsgBox(ex.Message)
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+
+        End Try
+
+
+
+
+
+    End Sub
 End Class

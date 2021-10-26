@@ -7,7 +7,8 @@ Namespace Classe
 #Region "PROPRIEDADES"
 
         Public Property titular As Cliente
-        Public Property numero As Integer
+
+        Public ReadOnly Property numero As Integer
 
         Private Shared m_TaxaOperacao As Integer
         Public Shared ReadOnly Property TaxaOperacao As Integer
@@ -23,19 +24,7 @@ Namespace Classe
             End Get
         End Property
 
-        Private m_agencia As Integer
-        Public Property agencia As Integer
-            Get
-                Return m_agencia
-            End Get
-            Set(value As Integer)
-                If value <= 0 Then
-                    m_agencia = 0
-                Else
-                    m_agencia = value
-                End If
-            End Set
-        End Property
+        Public ReadOnly Property agencia As Integer
 
         Private m_saldo As Double = 100
         Public Property saldo As Double
@@ -54,14 +43,31 @@ Namespace Classe
 #End Region
 
 #Region "CONSTRUTORES"
-        Public Sub New(_Agencia As Integer, _numero As Integer)
+        Public Sub New(CodigoAgencia As Integer, NumeroConta As Integer)
 
-            m_agencia = agencia
-            numero = numero
+            If (CodigoAgencia <= 0) Then
 
-            'm_TaxaOperacao = 30 / m_TotalDeContasCriadas
+                Dim vParametro As String
+                vParametro = NameOf(CodigoAgencia)
 
+                Dim Excecao As New ArgumentException("Código da agencia menor que zero!!!", vParametro)
+                Throw Excecao
+
+            ElseIf (NumeroConta <= 0) Then
+
+                Dim vParametro As String
+                vParametro = NameOf(NumeroConta)
+
+                Dim Excecao As New ArgumentException("Número da conta menor que zero!!!", vParametro)
+                Throw Excecao
+
+            End If
+
+            agencia = CodigoAgencia
+            numero = NumeroConta
             m_TotalDeContasCriadas += 1
+
+            m_TaxaOperacao = 30 / m_TotalDeContasCriadas
 
         End Sub
 
@@ -71,6 +77,7 @@ Namespace Classe
 #Region "MÉTODOS"
 
         Public Function Sacar(ValorSacado As Double) As Boolean
+
             Dim vRetorno As Boolean
             If m_saldo < ValorSacado Then
                 vRetorno = False
