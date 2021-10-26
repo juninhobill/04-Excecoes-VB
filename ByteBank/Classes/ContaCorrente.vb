@@ -59,7 +59,7 @@ Namespace Classe
             m_agencia = agencia
             numero = numero
 
-            m_TaxaOperacao = 30 / m_TotalDeContasCriadas
+            'm_TaxaOperacao = 30 / m_TotalDeContasCriadas
 
             m_TotalDeContasCriadas += 1
 

@@ -61,40 +61,60 @@ Public Class Frm_Principal
 
     End Function
 
-    Private Sub Frm_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub Video03ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Video03ToolStripMenuItem.Click
 
         Dim denominador As Integer = Val(Txt_Denominador.Text)
 
         Try
             TestarDivisao2(denominador)
+
         Catch ex As InvalidCastException
-            MsgBox("Existe um erro ao tentar escrever a mensagem da divisão.")
             MsgBox(ex.Message)
             MsgBox(ex.StackTrace)
+            MsgBox("Existe um erro de conversão de um Double para um String na divisão.")
+
+        Catch ex As OverflowException
+            MsgBox(ex.Message)
+            MsgBox(ex.StackTrace)
+            MsgBox("Não é possível efetuar a divisão por zero.")
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            MsgBox(ex.StackTrace)
+            MsgBox("Houve um erro ao executar a divisão.")
+
         End Try
 
     End Sub
 
     Sub TestarDivisao2(Valor As Integer)
 
-        Try
-            Dim Resultado As Integer = efetuadivisao2(10, Valor)
-            MsgBox("O valor da divisão entre 10 e " + Valor.ToString + " é de: " + Resultado)
-        Catch ex As OverflowException
-            MsgBox("Não é possível efetuar a divisão por zero.")
-            MsgBox(ex.Message)
-            MsgBox(ex.StackTrace)
-        End Try
+
+        Dim Resultado As Integer = efetuadivisao2(10, Valor)
+
+        MsgBox("Erro de divisão ocorreu mas estou continuando o programa.")
+
+        If Valor = 5 Then
+            Dim conta As New ContaCorrente(277, 213123)
+            MsgBox(conta.titular.nome)
+        End If
+
+        MsgBox("O valor da divisão entre 10 e " + Valor.ToString + " é de: " + Resultado)
 
     End Sub
 
     Function efetuadivisao2(Numerador As Integer, Denominador As Integer) As Integer
 
-        Return Numerador / Denominador
+        Try
+            Return Numerador / Denominador
+
+        Catch ex As OverflowException
+            MsgBox("Tentamos dividir o número " + Numerador.ToString + " por: " + Denominador.ToString)
+
+            Throw
+
+        End Try
+
 
     End Function
 
