@@ -35,9 +35,11 @@ Partial Class Frm_Principal
         Me.Lbl_Agencia = New System.Windows.Forms.Label()
         Me.Grp_DivisaoZero = New System.Windows.Forms.GroupBox()
         Me.Grp_AgenciaConta = New System.Windows.Forms.GroupBox()
-        Me.Lbl_Conta = New System.Windows.Forms.Label()
-        Me.Txt_Agencia = New System.Windows.Forms.TextBox()
         Me.Txt_Conta = New System.Windows.Forms.TextBox()
+        Me.Txt_Agencia = New System.Windows.Forms.TextBox()
+        Me.Lbl_Conta = New System.Windows.Forms.Label()
+        Me.Aula03ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Video05ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Grp_DivisaoZero.SuspendLayout()
         Me.Grp_AgenciaConta.SuspendLayout()
@@ -54,7 +56,7 @@ Partial Class Frm_Principal
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Aula01ToolStripMenuItem, Me.Aula02ToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Aula01ToolStripMenuItem, Me.Aula02ToolStripMenuItem, Me.Aula03ToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(597, 24)
@@ -96,7 +98,7 @@ Partial Class Frm_Principal
         'Video04ToolStripMenuItem
         '
         Me.Video04ToolStripMenuItem.Name = "Video04ToolStripMenuItem"
-        Me.Video04ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.Video04ToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.Video04ToolStripMenuItem.Text = "Video 04"
         '
         'Txt_Denominador
@@ -146,6 +148,20 @@ Partial Class Frm_Principal
         Me.Grp_AgenciaConta.TabIndex = 6
         Me.Grp_AgenciaConta.TabStop = False
         '
+        'Txt_Conta
+        '
+        Me.Txt_Conta.Location = New System.Drawing.Point(9, 115)
+        Me.Txt_Conta.Name = "Txt_Conta"
+        Me.Txt_Conta.Size = New System.Drawing.Size(130, 20)
+        Me.Txt_Conta.TabIndex = 7
+        '
+        'Txt_Agencia
+        '
+        Me.Txt_Agencia.Location = New System.Drawing.Point(9, 44)
+        Me.Txt_Agencia.Name = "Txt_Agencia"
+        Me.Txt_Agencia.Size = New System.Drawing.Size(130, 20)
+        Me.Txt_Agencia.TabIndex = 6
+        '
         'Lbl_Conta
         '
         Me.Lbl_Conta.AutoSize = True
@@ -155,19 +171,18 @@ Partial Class Frm_Principal
         Me.Lbl_Conta.TabIndex = 5
         Me.Lbl_Conta.Text = "Label1"
         '
-        'Txt_Agencia
+        'Aula03ToolStripMenuItem
         '
-        Me.Txt_Agencia.Location = New System.Drawing.Point(9, 44)
-        Me.Txt_Agencia.Name = "Txt_Agencia"
-        Me.Txt_Agencia.Size = New System.Drawing.Size(130, 20)
-        Me.Txt_Agencia.TabIndex = 6
+        Me.Aula03ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Video05ToolStripMenuItem})
+        Me.Aula03ToolStripMenuItem.Name = "Aula03ToolStripMenuItem"
+        Me.Aula03ToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.Aula03ToolStripMenuItem.Text = "Aula 03"
         '
-        'Txt_Conta
+        'Video05ToolStripMenuItem
         '
-        Me.Txt_Conta.Location = New System.Drawing.Point(9, 115)
-        Me.Txt_Conta.Name = "Txt_Conta"
-        Me.Txt_Conta.Size = New System.Drawing.Size(130, 20)
-        Me.Txt_Conta.TabIndex = 7
+        Me.Video05ToolStripMenuItem.Name = "Video05ToolStripMenuItem"
+        Me.Video05ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.Video05ToolStripMenuItem.Text = "Video 05"
         '
         'Frm_Principal
         '
@@ -209,4 +224,6 @@ Partial Class Frm_Principal
     Friend WithEvents Txt_Conta As TextBox
     Friend WithEvents Txt_Agencia As TextBox
     Friend WithEvents Lbl_Conta As Label
+    Friend WithEvents Aula03ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Video05ToolStripMenuItem As ToolStripMenuItem
 End Class

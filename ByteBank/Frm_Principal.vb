@@ -147,4 +147,11 @@ Public Class Frm_Principal
 
 
     End Sub
+
+    Private Sub Video05ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Video05ToolStripMenuItem.Click
+
+        Dim f As New Frm_Video05
+        f.ShowDialog()
+
+    End Sub
 End Class

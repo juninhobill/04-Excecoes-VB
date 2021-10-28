@@ -76,36 +76,32 @@ Namespace Classe
 
 #Region "MÉTODOS"
 
-        Public Function Sacar(ValorSacado As Double) As Boolean
+        Public Sub Sacar(ValorSacado As Double, ValorLabel As String)
 
-            Dim vRetorno As Boolean
+            If ValorSacado < 0 Then
+                Throw New ArgumentException("Valor " + ValorLabel + " é negativo. " + ValorSacado.ToString, NameOf(ValorSacado))
+            End If
+
             If m_saldo < ValorSacado Then
-                vRetorno = False
+                Dim vMensagem As String
+                vMensagem = "Valor " + ValorLabel + " é maior que o saldo"
+                Throw New ValorSacadoMenorSaldoException(ValorSacado, m_saldo, vMensagem)
             Else
-                vRetorno = True
                 m_saldo -= ValorSacado
             End If
-            Return ValorSacado
 
-        End Function
+        End Sub
 
         Public Sub Depositar(ValorDepositado As Double)
             m_saldo += ValorDepositado
         End Sub
 
-        Public Function Transferir(ValorTransferencia As Double, ContaDestino As ContaCorrente) As Boolean
+        Public Sub Transferir(ValorTransferencia As Double, ContaDestino As ContaCorrente)
 
-            Dim vRetorno As Boolean
-            If m_saldo < ValorTransferencia Then
-                vRetorno = False
-            Else
-                m_saldo -= ValorTransferencia
-                ContaDestino.Depositar(ValorTransferencia)
-                vRetorno = True
-            End If
-            Return vRetorno
+            Sacar(ValorTransferencia, "da transferencia")
+            ContaDestino.Depositar(ValorTransferencia)
 
-        End Function
+        End Sub
 
 #End Region
 
