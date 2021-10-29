@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="Classes\Cliente.vb" />
     <Compile Include="Classes\ContaCorrente.vb" />
+    <Compile Include="Classes\LeitordeArquivo.vb" />
+    <Compile Include="Classes\OperacaoFinanceiraException.vb" />
     <Compile Include="Classes\ValorSacadoMenorSaldoException.vb" />
     <Compile Include="Frm_Principal.vb">
       <SubType>Form</SubType>

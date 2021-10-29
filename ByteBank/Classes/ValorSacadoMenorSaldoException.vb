@@ -1,7 +1,7 @@
 ﻿Namespace Classes
 
     Public Class ValorSacadoMenorSaldoException
-        Inherits Exception
+        Inherits OperacaoFinanceiraException
 
 #Region "PROPRIEDADES"
 
@@ -16,6 +16,11 @@
 
         End Sub
 
+        Sub New(message As String)
+            MyBase.New(message)
+
+        End Sub
+
         Sub New(_ValorSacado As Double, _Saldo As Double, message As String)
             Me.New(message)
             ValorSacado = _ValorSacado
@@ -23,9 +28,8 @@
 
         End Sub
 
-
-        Sub New(message As String)
-            MyBase.New(message)
+        Sub New(Message As String, excecaoInterna As Exception)
+            MyBase.New(Message, excecaoInterna)
 
         End Sub
 

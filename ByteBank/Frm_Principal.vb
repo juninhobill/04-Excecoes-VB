@@ -1,4 +1,6 @@
-﻿Imports ByteBank.Classe
+﻿Imports System.IO
+Imports ByteBank.Classe
+Imports ByteBank.Classes
 
 Public Class Frm_Principal
     Public Sub New()
@@ -92,7 +94,6 @@ Public Class Frm_Principal
 
     Sub TestarDivisao2(Valor As Integer)
 
-
         Dim Resultado As Integer = efetuadivisao2(10, Valor)
 
         MsgBox("Erro de divisão ocorreu mas estou continuando o programa.")
@@ -118,7 +119,6 @@ Public Class Frm_Principal
 
         End Try
 
-
     End Function
 
     Private Sub Video04ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Video04ToolStripMenuItem.Click
@@ -127,24 +127,16 @@ Public Class Frm_Principal
 
             Dim vAgencia As Integer = Val(Txt_Agencia.Text)
             Dim vConta As Integer = Val(Txt_Conta.Text)
-
             Dim conta As New ContaCorrente(vAgencia, vConta)
-
             MsgBox("O código da agência e conta são: " + conta.agencia.ToString + " - " + conta.numero.ToString)
 
         Catch ex As ArgumentException
-
             MsgBox(ex.Message)
 
         Catch ex As Exception
-
             MsgBox(ex.Message)
 
         End Try
-
-
-
-
 
     End Sub
 
@@ -154,4 +146,44 @@ Public Class Frm_Principal
         f.ShowDialog()
 
     End Sub
+
+    Private Sub Video06ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Video06ToolStripMenuItem.Click
+
+        Try
+            LeituraArquivo()
+        Catch ex As Exception
+            Console.WriteLine("Erro no arquivo")
+        End Try
+
+    End Sub
+
+    Sub LeituraArquivo()
+
+        Using x As New LeitordeArquivo("ContaCorrente.txt")
+            x.LeituraLinha()
+            x.LeituraLinha()
+            x.LeituraLinha()
+            x.LeituraLinha()
+            x.LeituraLinha()
+
+        End Using
+
+        'Dim x As LeitordeArquivo
+        'Try
+        '    x = New LeitordeArquivo("ContaCorrente.txt")
+        '    x.LeituraLinha()
+        '    x.LeituraLinha()
+        '    x.LeituraLinha()
+        '    x.LeituraLinha()
+        '    x.LeituraLinha()
+
+        'Finally
+        '    If Not (x Is Nothing) Then
+        '        x.FecharArquivo()
+        '    End If
+
+        'End Try
+
+    End Sub
+
 End Class

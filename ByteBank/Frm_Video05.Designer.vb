@@ -33,6 +33,10 @@ Partial Class Frm_Video05
         Me.Btm_Transferir = New System.Windows.Forms.Button()
         Me.Lbl_ContaCorrente2 = New System.Windows.Forms.Label()
         Me.Lbl_Saldo2 = New System.Windows.Forms.Label()
+        Me.Btm_Stack = New System.Windows.Forms.Button()
+        Me.Txt_Stack = New System.Windows.Forms.TextBox()
+        Me.Lbl_SaquesErrados = New System.Windows.Forms.Label()
+        Me.Lbl_TransferErrados = New System.Windows.Forms.Label()
         Me.Grp_Movimentacao.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,6 +60,8 @@ Partial Class Frm_Video05
         '
         'Grp_Movimentacao
         '
+        Me.Grp_Movimentacao.Controls.Add(Me.Lbl_TransferErrados)
+        Me.Grp_Movimentacao.Controls.Add(Me.Lbl_SaquesErrados)
         Me.Grp_Movimentacao.Controls.Add(Me.Lbl_Saldo2)
         Me.Grp_Movimentacao.Controls.Add(Me.Btm_Transferir)
         Me.Grp_Movimentacao.Controls.Add(Me.Lbl_Saldo)
@@ -64,7 +70,7 @@ Partial Class Frm_Video05
         Me.Grp_Movimentacao.Controls.Add(Me.Lbl_Movimentacao)
         Me.Grp_Movimentacao.Location = New System.Drawing.Point(16, 75)
         Me.Grp_Movimentacao.Name = "Grp_Movimentacao"
-        Me.Grp_Movimentacao.Size = New System.Drawing.Size(361, 169)
+        Me.Grp_Movimentacao.Size = New System.Drawing.Size(476, 207)
         Me.Grp_Movimentacao.TabIndex = 2
         Me.Grp_Movimentacao.TabStop = False
         Me.Grp_Movimentacao.Text = "GroupBox1"
@@ -139,11 +145,49 @@ Partial Class Frm_Video05
         Me.Lbl_Saldo2.TabIndex = 5
         Me.Lbl_Saldo2.Text = "Label1"
         '
+        'Btm_Stack
+        '
+        Me.Btm_Stack.Location = New System.Drawing.Point(12, 288)
+        Me.Btm_Stack.Name = "Btm_Stack"
+        Me.Btm_Stack.Size = New System.Drawing.Size(148, 23)
+        Me.Btm_Stack.TabIndex = 5
+        Me.Btm_Stack.Text = "Button1"
+        Me.Btm_Stack.UseVisualStyleBackColor = True
+        '
+        'Txt_Stack
+        '
+        Me.Txt_Stack.Location = New System.Drawing.Point(12, 317)
+        Me.Txt_Stack.Multiline = True
+        Me.Txt_Stack.Name = "Txt_Stack"
+        Me.Txt_Stack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.Txt_Stack.Size = New System.Drawing.Size(480, 84)
+        Me.Txt_Stack.TabIndex = 6
+        '
+        'Lbl_SaquesErrados
+        '
+        Me.Lbl_SaquesErrados.AutoSize = True
+        Me.Lbl_SaquesErrados.Location = New System.Drawing.Point(6, 172)
+        Me.Lbl_SaquesErrados.Name = "Lbl_SaquesErrados"
+        Me.Lbl_SaquesErrados.Size = New System.Drawing.Size(39, 13)
+        Me.Lbl_SaquesErrados.TabIndex = 6
+        Me.Lbl_SaquesErrados.Text = "Label1"
+        '
+        'Lbl_TransferErrados
+        '
+        Me.Lbl_TransferErrados.AutoSize = True
+        Me.Lbl_TransferErrados.Location = New System.Drawing.Point(235, 172)
+        Me.Lbl_TransferErrados.Name = "Lbl_TransferErrados"
+        Me.Lbl_TransferErrados.Size = New System.Drawing.Size(39, 13)
+        Me.Lbl_TransferErrados.TabIndex = 7
+        Me.Lbl_TransferErrados.Text = "Label1"
+        '
         'Frm_Video05
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(505, 302)
+        Me.ClientSize = New System.Drawing.Size(505, 413)
+        Me.Controls.Add(Me.Txt_Stack)
+        Me.Controls.Add(Me.Btm_Stack)
         Me.Controls.Add(Me.Lbl_ContaCorrente2)
         Me.Controls.Add(Me.Lbl_ContaCorrente)
         Me.Controls.Add(Me.Grp_Movimentacao)
@@ -170,4 +214,8 @@ Partial Class Frm_Video05
     Friend WithEvents Btm_Transferir As Button
     Friend WithEvents Lbl_ContaCorrente2 As Label
     Friend WithEvents Lbl_Saldo2 As Label
+    Friend WithEvents Btm_Stack As Button
+    Friend WithEvents Txt_Stack As TextBox
+    Friend WithEvents Lbl_SaquesErrados As Label
+    Friend WithEvents Lbl_TransferErrados As Label
 End Class
